@@ -1,0 +1,108 @@
+[submodule "modules/dozendserver"]
+	path = modules/dozendserver
+	url = git@github.com:devopera/puppet-dozendserver.git
+[submodule "modules/dorepos"]
+	path = modules/dorepos
+	url = git@github.com:devopera/puppet-dorepos.git
+[submodule "modules/dopki"]
+	path = modules/dopki
+	url = git@github.com:devopera/puppet-dopki.git
+[submodule "modules/domysqldb"]
+	path = modules/domysqldb
+	url = git@github.com:devopera/puppet-domysqldb.git
+[submodule "modules/docsf"]
+	path = modules/docsf
+	url = git@github.com:devopera/puppet-docsf.git
+[submodule "modules/docommon"]
+	path = modules/docommon
+	url = git@github.com:devopera/puppet-docommon.git
+[submodule "modules/dosamba"]
+	path = modules/dosamba
+	url = git@github.com:devopera/puppet-dosamba.git
+[submodule "modules/domotd"]
+	path = modules/domotd
+	url = git@github.com:devopera/puppet-domotd.git
+[submodule "modules/dopostfix"]
+	path = modules/dopostfix
+	url = git@github.com:devopera/puppet-dopostfix.git
+[submodule "modules/domantis"]
+	path = modules/domantis
+	url = git@github.com:devopera/puppet-domantis.git
+[submodule "configs/drupal"]
+	path = configs/drupal
+	url = git@github.com:devopera/appconfig-drupal.git
+[submodule "configs/django"]
+	path = configs/django
+	url = git@github.com:devopera/appconfig-django.git
+[submodule "configs/wordpress"]
+	path = configs/wordpress
+	url = git@github.com:devopera/appconfig-wordpress.git
+[submodule "modules/concat"]
+	path = modules/concat
+	url = https://github.com/ripienaar/puppet-concat.git
+[submodule "modules/nfs"]
+	path = modules/nfs
+	url = https://github.com/haraldsk/puppet-module-nfs/
+[submodule "modules/inifilei"]
+	path = modules/inifilei
+	url = https://github.com/cprice-puppet/puppetlabs-inifile.git
+[submodule "modules/stdlib"]
+	path = modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
+[submodule "modules/apache"]
+	path = modules/apache
+	url = https://github.com/puppetlabs/puppetlabs-apache.git
+[submodule "modules/puppetdb"]
+	path = modules/puppetdb
+	url = https://github.com/puppetlabs/puppetlabs-puppetdb.git
+[submodule "modules/pear"]
+	path = modules/pear
+	url = https://github.com/rafaelfelix/puppet-pear.git
+[submodule "modules/epel"]
+	path = modules/epel
+	url = https://github.com/stahnma/puppet-module-epel.git
+[submodule "modules/sudo"]
+	path = modules/sudo
+	url = https://github.com/saz/puppet-sudo.git
+[submodule "modules/ntp"]
+	path = modules/ntp
+	url = https://github.com/saz/puppet-ntp.git
+[submodule "modules/puppi"]
+	path = modules/puppi
+	url = https://github.com/example42/puppi.git
+[submodule "modules/postfix"]
+	path = modules/postfix
+	url = https://github.com/example42/puppet-postfix
+[submodule "modules/monitor"]
+	path = modules/monitor
+	url = https://github.com/example42/puppet-monitor.git
+[submodule "modules/iptables"]
+	path = modules/iptables
+	url = https://github.com/example42/puppet-iptables.git
+[submodule "modules/firewall"]
+	path = modules/firewall
+	url = https://github.com/example42/puppet-firewall.git
+[submodule "modules/nrpe"]
+	path = modules/nrpe
+	url = https://github.com/example42/puppet-nrpe.git
+[submodule "modules/ssh"]
+	path = modules/ssh
+	url = git@github.com:devopera/puppet-ssh.git
+[submodule "modules/vmwaretools"]
+	path = modules/vmwaretools
+	url = git@github.com:devopera/puppet-vmwaretools.git
+[submodule "modules/dns"]
+	path = modules/dns
+	url = git@github.com:devopera/puppet-dns.git
+[submodule "modules/rkhunter"]
+	path = modules/rkhunter
+	url = git@github.com:devopera/puppet-rkhunter.git
+[submodule "modules/mysql"]
+	path = modules/mysql
+	url = git@github.com:devopera/puppet-mysql.git
+[submodule "modules/squid"]
+	path = modules/squid
+	url = git@github.com:devopera/puppet-squid.git
+[submodule "modules/nagios"]
+	path = modules/nagios
+	url = git@github.com:devopera/puppet-nagios.git
