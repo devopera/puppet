@@ -95,7 +95,7 @@ define process_profile (
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
       }
     }
-    mantis: {
+    mantisbt-1: {
       class { 'domantis' :
         require => Class['docommon'],
       }->
@@ -104,10 +104,10 @@ define process_profile (
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
       }
     }
-    nagios: {
+    nagios-target: {
       class { 'donagios' : }
     }
-    nagios-server: {
+    nagios-3: {
       class { 'donagios::server' :
         user => $user,
         require => [Class['dozendserver']],
@@ -208,16 +208,22 @@ Stage['main'] -> Stage['last']
 class prerun (
 
 ) {
-  # setup yum/wget to use squid (if pingable)
-  class { 'dosquid' :
-    squid_ip => '10.12.1.130',
+  # if squid caching module installed
+  if defined(Class['dosquid']) {
+    # setup yum/wget to use squid (if server pingable)
+    class { 'dosquid' :
+      squid_ip => '10.12.1.130',
+    }
   }
 }
 
 class postrun (
 
 ) {
-  # tell yum/wget not to use squid cache
-  class { 'dosquid::cleanup' : }
+  # if squid caching module installed
+  if defined(Class['dosquid']) {
+    # tell yum/wget not to use squid cache
+    class { 'dosquid::cleanup' : }
+  }
 }
 
