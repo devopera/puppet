@@ -106,3 +106,9 @@
 [submodule "modules/nagios"]
 	path = modules/nagios
 	url = https://github.com/devopera/puppet-nagios.git
+[submodule "modules/dopuppetmaster"]
+	path = modules/dopuppetmaster
+	url = https://github.com/devopera/puppet-dopuppetmaster.git
+[submodule "modules/donagios"]
+	path = modules/donagios
+	url = https://github.com/devopera/puppet-donagios.git
