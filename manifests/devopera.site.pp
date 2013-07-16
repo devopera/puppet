@@ -110,6 +110,7 @@ define process_profile (
     nagios-3: {
       class { 'donagios::server' :
         user => $user,
+        webadmin_limitlocalhost = false,
         require => [Class['dozendserver']],
       }
     }
