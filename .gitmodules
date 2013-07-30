@@ -28,9 +28,6 @@
 [submodule "modules/domantis"]
 	path = modules/domantis
 	url = https://github.com/devopera/puppet-domantis.git
-[submodule "configs/drupal"]
-	path = configs/drupal
-	url = https://github.com/devopera/appconfig-drupal.git
 [submodule "configs/django"]
 	path = configs/django
 	url = https://github.com/devopera/appconfig-django.git
