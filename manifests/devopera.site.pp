@@ -6,6 +6,15 @@ node default {
   #
   # global config
   #
+  case $operatingsystem {
+    centos, redhat: {
+      $selinux = true
+    }
+    ubuntu, debian: {
+      $selinux = false
+    }
+  }
+
   class { 'prerun' :
     stage => 'first',
   }
@@ -16,6 +25,10 @@ node default {
 
   class { 'docommon' :
     ssh_password_authentication => 'yes',
+  }
+  # tell all fireports to use example42's firewall -> iptables module(s)
+  Docommon::Fireport {
+    firewall_module => 'example42',
   }
 
   class { 'dopki' :
@@ -89,10 +102,28 @@ define process_profile (
     drupal-7: {
       class { 'dodrupal' :
         require => Class['docommon'],
-      }->
-      class { 'dodrupal::base' :
+      }
+      dodrupal::base { 'dodrupal-base-7' :
         user => $user,
-        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
+        version => 'drupal-7',
+        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
+      }
+    }
+    drupal-8: {
+      class { 'dodrupal' :
+        require => Class['docommon'],
+      }
+      dodrupal::base { 'dodrupal-base-8.x' :
+        user => $user,
+        vhost_seq => '01',
+        version => 'drupal-8.x',
+        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
+      }
+      dodrupal::base { 'dodrupal-base-7' :
+        user => $user,
+        vhost_seq => '02',
+        version => 'drupal-7',
+        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
       }
     }
     mantisbt-1: {
@@ -210,7 +241,7 @@ class prerun (
 
 ) {
   # if squid caching module installed
-  if defined(Class['dosquid']) {
+  if defined('dosquid') {
     # setup yum/wget to use squid (if server pingable)
     class { 'dosquid' :
       squid_ip => '10.12.1.130',
@@ -222,7 +253,7 @@ class postrun (
 
 ) {
   # if squid caching module installed
-  if defined(Class['dosquid']) {
+  if defined('dosquid') {
     # tell yum/wget not to use squid cache
     class { 'dosquid::cleanup' : }
   }

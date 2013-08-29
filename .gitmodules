@@ -109,3 +109,6 @@
 [submodule "modules/donagios"]
 	path = modules/donagios
 	url = https://github.com/devopera/puppet-donagios.git
+[submodule "modules/samba"]
+	path = modules/samba
+	url = git@github.com:thias/puppet-samba.git
