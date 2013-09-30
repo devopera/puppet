@@ -91,9 +91,6 @@
 [submodule "modules/dns"]
 	path = modules/dns
 	url = https://github.com/devopera/puppet-dns.git
-[submodule "modules/rkhunter"]
-	path = modules/rkhunter
-	url = https://github.com/devopera/puppet-rkhunter.git
 [submodule "modules/mysql"]
 	path = modules/mysql
 	url = https://github.com/devopera/puppet-mysql.git
