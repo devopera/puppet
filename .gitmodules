@@ -85,9 +85,6 @@
 [submodule "modules/ssh"]
 	path = modules/ssh
 	url = https://github.com/devopera/puppet-ssh.git
-[submodule "modules/vmwaretools"]
-	path = modules/vmwaretools
-	url = https://github.com/devopera/puppet-vmwaretools.git
 [submodule "modules/dns"]
 	path = modules/dns
 	url = https://github.com/devopera/puppet-dns.git
