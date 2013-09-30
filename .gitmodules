@@ -109,3 +109,9 @@
 [submodule "modules/samba"]
 	path = modules/samba
 	url = git@github.com:thias/puppet-samba.git
+[submodule "modules/rkhunter"]
+	path = modules/rkhunter
+	url = git@github.com:duritong/puppet-rkhunter.git
+[submodule "modules/dorkhunter"]
+	path = modules/dorkhunter
+	url = git@github.com:devopera/puppet-dorkhunter.git
