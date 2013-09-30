@@ -115,3 +115,6 @@
 [submodule "modules/dorkhunter"]
 	path = modules/dorkhunter
 	url = git@github.com:devopera/puppet-dorkhunter.git
+[submodule "modules/dodns"]
+	path = modules/dodns
+	url = git@github.com:devopera/puppet-dodns.git
