@@ -23,6 +23,11 @@ node default {
     stage => 'last',
   }
 
+  # put all machines puppeted in this environment into a hostgroup
+  Nagios_host {
+    hostgroups => ['devopera'],
+  }
+
   class { 'docommon' :
     ssh_password_authentication => 'yes',
     firewall_module => 'example42',
@@ -87,6 +92,8 @@ define process_profile (
       class { 'dosamba' :
         require => [Class['dorepos']],
       }
+      # open up direct database access
+      class { 'domysqldb::dev' : }
       # add vagrant's low-security key for ssh key auth
       dopki::addkey { 'dopki-vagrant' :
         user => $user,
@@ -176,10 +183,10 @@ NE5OgEXk2wVfZczCZpigBKbKZHNYcelXtTt/nP3rsCuGcM4h53s=
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
       }
     }
-    nagios-target: {
+    nagios: {
       class { 'donagios' : }
     }
-    nagios-3: {
+    nagios-server-3: {
       class { 'donagios::server' :
         user => $user,
         webadmin_limitlocalhost => false,
@@ -212,16 +219,7 @@ NE5OgEXk2wVfZczCZpigBKbKZHNYcelXtTt/nP3rsCuGcM4h53s=
       }
     }
     production: {
-      # remove autoload key password once key loaded for puppet
-      class { 'dopki::sshagentcleanup' :
-        require => Class['dopki::sshagentadd'],
-      }
-      class { 'docsf':
-        require => Class['docommon'],
-      }
-      class { 'rkhunter':
-        require => Class['docommon'],
-      }
+      # no production profile in devopera
     }
     python-27: {
       # install python in virtualenv
