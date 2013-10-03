@@ -10,9 +10,6 @@
 [submodule "modules/domysqldb"]
 	path = modules/domysqldb
 	url = https://github.com/devopera/puppet-domysqldb.git
-[submodule "modules/docsf"]
-	path = modules/docsf
-	url = https://github.com/devopera/puppet-docsf.git
 [submodule "modules/docommon"]
 	path = modules/docommon
 	url = https://github.com/devopera/puppet-docommon.git
