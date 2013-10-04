@@ -192,6 +192,8 @@ NE5OgEXk2wVfZczCZpigBKbKZHNYcelXtTt/nP3rsCuGcM4h53s=
         webadmin_limitlocalhost => false,
         require => [Class['dozendserver']],
       }
+      # setup hostgroup
+      nagios_hostgroup { 'devopera': }
     }
     puppetmaster: {
       # replace local /etc/puppet directory with repo, but merge in agent/master settings
