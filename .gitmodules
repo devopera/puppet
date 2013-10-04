@@ -103,3 +103,6 @@
 [submodule "modules/dodns"]
 	path = modules/dodns
 	url = https://github.com/devopera/puppet-dodns.git
+[submodule "modules/docommon"]
+	path = modules/docommon
+	url = https://github.com/devopera/puppet-docommon
