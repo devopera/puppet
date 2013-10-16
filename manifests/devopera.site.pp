@@ -71,7 +71,18 @@ node default {
   process_profile{ $profile_components : 
     require => Class['docommon'],
   }
+
+  #
+  # profile-specific defaults, which must be set in the default node
+  #
+  if ($server_profile =~ /django-1-beta/) {
+    class { 'dozendserver::override':
+      server_version => '6.1',
+      php_version => '5.4',
+    }
+  }
 }
+
 
 define process_profile (
   $profile = $name,
