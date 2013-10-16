@@ -92,6 +92,11 @@ define process_profile (
       class { 'dosamba' :
         require => [Class['dorepos']],
       }
+      # overwrite sudo config to allow passwordless sudo
+      sudo::conf { "${user}-dev":
+        priority => 20,
+        content  => "${user} ALL = NOPASSWD: ALL\nDefaults:${user}    !requiretty\nDefaults:${user}    visiblepw",
+      }
       # open up direct database access
       class { 'domysqldb::dev' : }
       # add vagrant's low-security key for ssh key auth
@@ -138,8 +143,19 @@ NE5OgEXk2wVfZczCZpigBKbKZHNYcelXtTt/nP3rsCuGcM4h53s=
       # install X Windows
       class { 'docommon::desktop' : }
     }
-    django-14: {
+    django-1-official: {
       class { 'dodjango' :
+        require => Class['dopython'],
+      }->
+      class { 'dodjango::base' :
+        user => $user,
+        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
+      }
+    }
+    django-1-beta: {
+      class { 'dodjango' :
+        release => 'beta',
+        release_branch => '1.6.x',
         require => Class['dopython'],
       }->
       class { 'dodjango::base' :
