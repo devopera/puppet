@@ -186,6 +186,8 @@ NE5OgEXk2wVfZczCZpigBKbKZHNYcelXtTt/nP3rsCuGcM4h53s=
     }
     drupal-8: {
       class { 'dodrupal' :
+        # version => 'drush-6.1.0.0',
+        # version_match => 'Drush Version   :  6.1',
         require => Class['docommon'],
       }
       dodrupal::base { 'dodrupal-base-8.x' :
