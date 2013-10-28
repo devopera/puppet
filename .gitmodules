@@ -61,9 +61,6 @@
 [submodule "modules/puppi"]
 	path = modules/puppi
 	url = https://github.com/example42/puppi.git
-[submodule "modules/postfix"]
-	path = modules/postfix
-	url = https://github.com/example42/puppet-postfix
 [submodule "modules/monitor"]
 	path = modules/monitor
 	url = https://github.com/example42/puppet-monitor.git
@@ -73,9 +70,6 @@
 [submodule "modules/firewall"]
 	path = modules/firewall
 	url = https://github.com/example42/puppet-firewall.git
-[submodule "modules/nrpe"]
-	path = modules/nrpe
-	url = https://github.com/example42/puppet-nrpe.git
 [submodule "modules/ssh"]
 	path = modules/ssh
 	url = https://github.com/devopera/puppet-ssh.git
