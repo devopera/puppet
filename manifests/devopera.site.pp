@@ -216,6 +216,8 @@ NE5OgEXk2wVfZczCZpigBKbKZHNYcelXtTt/nP3rsCuGcM4h53s=
       class { 'donagios' : }
     }
     nagios-server-3: {
+      class { 'donagios::server::pre' :
+      }->
       class { 'donagios::server' :
         user => $user,
         webadmin_limitlocalhost => false,
