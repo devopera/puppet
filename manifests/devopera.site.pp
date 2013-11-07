@@ -1,19 +1,19 @@
 #
+# global config
+#
+#case $operatingsystem {
+#  centos, redhat: {
+#    $selinux = true
+#  }
+#  ubuntu, debian: {
+#    $selinux = false
+#  }
+#}
+
+#
 # SENSITIVE: this file contains passwords (hashed and plaintext)
 #
 node default {
-
-  #
-  # global config
-  #
-  case $operatingsystem {
-    centos, redhat: {
-      $selinux = true
-    }
-    ubuntu, debian: {
-      $selinux = false
-    }
-  }
 
   class { 'prerun' :
     stage => 'first',
@@ -62,6 +62,10 @@ node default {
 
   # secure email sending with no local delivery
   class { 'dopostfix' :
+  }
+
+  # puppi for deps, deployments and nagios plugins
+  class { 'puppi' :
   }
   
   #
@@ -186,8 +190,7 @@ NE5OgEXk2wVfZczCZpigBKbKZHNYcelXtTt/nP3rsCuGcM4h53s=
     }
     drupal-8: {
       class { 'dodrupal' :
-        # version => 'drush-6.1.0.0',
-        # version_match => 'Drush Version   :  6.1',
+        version => 'master',
         require => Class['docommon'],
       }
       dodrupal::base { 'dodrupal-base-8.x' :
