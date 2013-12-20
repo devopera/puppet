@@ -53,8 +53,7 @@ node default {
   }
 
   # puppi for deps, deployments and nagios plugins
-  class { 'puppi' :
-  }
+  class { 'puppi' : }
   
   #
   # profile-specific config based on client-side custom facts
@@ -174,6 +173,10 @@ define process_profile (
     }
     nagios: {
       class { 'donagios' : }
+      if ($server_profile =~ /dev/) {
+        # if both nagios and dev profiles present
+        class { 'donagios::nrpe-client' : }
+      }
     }
     nagios-server-3: {
       class { 'donagios::server::pre' :
