@@ -105,7 +105,12 @@ define process_profile (
       class { 'dopki::vagrant' :
         user => $user,
         user_email => $user_email,
-      }      
+      }
+      package { 'jekyll':
+        ensure   => 'installed',
+        provider => 'gem',
+        require  => [Class['docommon::dev']],
+      }
     }
     desktop: {
       # install X Windows
