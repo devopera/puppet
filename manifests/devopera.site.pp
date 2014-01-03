@@ -167,6 +167,20 @@ define process_profile (
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
       }
     }
+    lamp: {
+      # install simple demo of LAMP stack
+      dorepos::installapp { 'lamp-demo' :
+        user => $user,
+        repo => {
+          provider => 'git',
+          path => '/var/www/git/github.com',
+          source => 'https://github.com/devopera/appconfig-lamp.git',
+        },
+        symlinkdir => "/home/${user}/",
+        install_databases => true,
+        require => [Class['dorepos'], Class['domysqldb']],
+      }
+    }
     mantisbt-1: {
       class { 'domantis' :
         require => Class['docommon'],
