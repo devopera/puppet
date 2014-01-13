@@ -261,6 +261,15 @@ define process_profile (
         require => Class['docommon'],
       }
     }
+    symfony-2: {
+      # install symfony demo and composer
+      class { 'dosymfony':
+        require => [Class['dozendserver']],
+      }->
+      class { 'dosymfony::base':
+        user => $user,
+      }
+    }
     updates: {
       # install secure update user
       class { 'doupdates' :
