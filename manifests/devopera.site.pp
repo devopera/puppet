@@ -34,6 +34,8 @@ node default {
   }
 
   class { 'dozendserver' :
+    server_version => '6.1',
+    php_version => '5.3',
     require => Class['docommon'],
   }
 
@@ -171,11 +173,7 @@ define process_profile (
       # install simple demo of LAMP stack
       dorepos::installapp { 'lamp-demo' :
         user => $user,
-        repo => {
-          provider => 'git',
-          path => '/var/www/git/github.com',
-          source => 'https://github.com/devopera/appconfig-lamp.git',
-        },
+        repo_source => 'https://github.com/devopera/appconfig-lamp.git',
         symlinkdir => "/home/${user}/",
         install_databases => true,
         require => [Class['dorepos'], Class['domysqldb']],
@@ -194,7 +192,9 @@ define process_profile (
       class { 'donagios' : }
       if ($server_profile =~ /dev/) {
         # if both nagios and dev profiles present
-        class { 'donagios::nrpe-client' : }
+        class { 'donagios::nrpe-client' :
+          allowed_hosts => [ '127.0.0.1', '10.12.2.0/24', ],
+        }
       }
     }
     nagios-server-3: {
@@ -213,11 +213,7 @@ define process_profile (
       class { 'dopuppetmaster' :
         user => $user,
         # setup puppetmaster with devopera-puppet open read-only repo
-        puppet_repo => {
-          provider => 'git',
-          path => '/etc/puppet',
-          source => 'https://github.com/devopera/puppet.git',
-        },
+        puppet_repo_source => 'https://github.com/devopera/puppet.git',
         environments => {
           'production' => {
              comment => 'production is the default environment',
