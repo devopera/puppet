@@ -241,6 +241,17 @@ define process_profile (
         require => Class['dozendserver'],
       }
     }
+    python-33: {
+      # install python in virtualenv
+      class { 'dopython' :
+        version_python_major => '3.3',
+        version_python_minor => '4',
+        require => Class['docommon'],
+      }->
+      class { 'dopython::wsgi' :
+        require => Class['dozendserver'],
+      }
+    }
     redmine-2: {
       class { 'doredmine' :
         require => Class['docommon'],
