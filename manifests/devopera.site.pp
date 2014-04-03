@@ -80,6 +80,7 @@ node default {
 define process_profile (
   $profile = $name,
   $user = 'web',
+  $group = 'www-data',
   $user_email = 'admin@example.com',
   $ssh_port = 15022,
 ) {
@@ -119,6 +120,7 @@ define process_profile (
       class { 'docommon::desktop' : }
     }
     django-1-official: {
+      # required profiles: python-27/python-33
       class { 'dodjango' :
         require => Class['dopython'],
       }->
@@ -129,6 +131,7 @@ define process_profile (
       }
     }
     django-1-beta: {
+      # required profiles: python-27/python-33
       class { 'dodjango' :
         release => 'beta',
         release_branch => '1.6.x',
@@ -145,7 +148,7 @@ define process_profile (
       }
       dodrupal::base { 'dodrupal-base-7' :
         user => $user,
-        version => 'drupal-7',
+        app_name => 'drupal-7',
         monitor => true,
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
       }
@@ -158,13 +161,13 @@ define process_profile (
       dodrupal::base { 'dodrupal-base-8.x' :
         user => $user,
         vhost_seq => '01',
-        version => 'drupal-8.x',
+        app_name => 'drupal-8.x',
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
       }
       dodrupal::base { 'dodrupal-base-7' :
         user => $user,
         vhost_seq => '02',
-        version => 'drupal-7',
+        app_name => 'drupal-7',
         monitor => true,
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
       }
@@ -179,6 +182,26 @@ define process_profile (
         require => [Class['dorepos'], Class['domysqldb']],
       }
     }
+    mean: {
+      if ! defined(Class['donodejs']) {
+        class { 'donodejs' :
+          user => $user,
+          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+        }
+      }
+      if ! defined(Class['domongodb']) {
+        class { 'domongodb' :
+          user => $user,
+        }
+      }
+      # also install yeoman for angular boilerplate
+      if ! defined(Class['doyeoman']) {
+        class { 'doyeoman' :
+          user => $user,
+          require => [Class['donodejs']],
+        }
+      }
+    }
     mantisbt-1: {
       class { 'domantis' :
         require => Class['docommon'],
@@ -188,17 +211,33 @@ define process_profile (
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
       }
     }
+    nodejs: {
+      if ! defined(Class['donodejs']) {
+        class { 'donodejs' :
+          user => $user,
+          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+        }
+      }
+      donodejs::base { 'donodejs-nodejs-profile-base' :
+        user => $user,
+        require => [Class['donodejs']],
+      }
+    }
     nagios: {
       class { 'donagios' : }
       if ($server_profile =~ /dev/) {
         # if both nagios and dev profiles present
         class { 'donagios::nrpe-client' :
-          allowed_hosts => [ '127.0.0.1', '10.12.2.0/24', ],
+          # cover clients with and without subnet (/24) wildcard support
+          allowed_hosts => [ '127.0.0.1', '10.12.2.0/24', '10.12.2.160', ],
         }
       }
     }
     nagios-server-3: {
       class { 'donagios::server::pre' :
+      }->
+      class { 'donagios::nrpe-client' :
+        allowed_hosts => [ '127.0.0.1', '10.12.2.0/24', '10.12.2.160', ],
       }->
       class { 'donagios::server' :
         user => $user,
@@ -208,7 +247,27 @@ define process_profile (
       # setup hostgroup
       nagios_hostgroup { 'devopera': }
     }
+    phonegap: {
+      # required profiles: desktop
+      if ! defined(Class['donodejs']) {
+        class { 'donodejs' :
+          user => $user,
+          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+        }
+      }
+      class { 'dophonegap' :
+        user => $user,
+        group => $group,
+        require => [Class['donodejs'], Class['docommon::desktop']],        
+      }
+    }
     puppetmaster: {
+      # install Postgresql for puppetdb
+      if ! defined(Class['dopostgresql']) {
+        class { 'dopostgresql' :
+          before => Class['dopuppetmaster'],
+        }
+      }
       # replace local /etc/puppet directory with repo, but merge in agent/master settings
       class { 'dopuppetmaster' :
         user => $user,
@@ -249,16 +308,29 @@ define process_profile (
         require => Class['docommon'],
       }->
       class { 'dopython::wsgi' :
+        version_python_major => '3.3',
         require => Class['dozendserver'],
       }
     }
     redmine-2: {
+      # install passenger
+      class { 'dopassenger' :
+        require => [Class['docommon'], Class['dozendserver']],
+      }->
+      # install Redmine deps
       class { 'doredmine' :
-        require => Class['docommon'],
+        user => $user,
       }->
       class { 'doredmine::base' :
         user => $user,
+        monitor => true,
+        symlinkdir => "/home/${user}",
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
+      }->
+      # install vhost for redmine base
+      dorepos::installapp { 'redmine-demo' :
+        user => $user,
+        repo_source => 'https://github.com/devopera/appconfig-redmine.git',
       }
     }
     squid-server: {
@@ -273,8 +345,10 @@ define process_profile (
       class { 'dosymfony':
         require => [Class['dozendserver']],
       }->
-      class { 'dosymfony::base':
+      dosymfony::base { 'dosymfony-demo':
         user => $user,
+        monitor => true,
+        symlinkdir => "/home/${user}",
       }
     }
     updates: {
@@ -291,6 +365,20 @@ define process_profile (
       class { 'dowordpress::base' :
         user => $user,
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
+      }
+    }
+    yeoman : {
+      if ! defined(Class['donodejs']) {
+        class { 'donodejs' :
+          user => $user,
+          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+        }
+      }
+      if ! defined(Class['doyeoman']) {
+        class { 'doyeoman' :
+          user => $user,
+          require => [Class['donodejs']],
+        }
       }
     }
     default: {
@@ -317,6 +405,11 @@ class prerun (
       squid_ip => '10.12.1.130',
     }
   }
+  # output date/time for keeping track
+  exec { 'main-output-date-time' :
+    command => '/bin/date',
+    logoutput => true,
+  }
 }
 
 class postrun (
@@ -328,4 +421,3 @@ class postrun (
     class { 'dosquid::cleanup' : }
   }
 }
-
