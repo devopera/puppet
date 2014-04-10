@@ -118,3 +118,24 @@
 [submodule "modules/dosquid"]
 	path = modules/dosquid
 	url = git@github.com:devopera/puppet-dosquid.git
+[submodule "modules/rkhunter"]
+	path = modules/rkhunter
+	url = git@github.com:duritong/puppet-rkhunter.git
+[submodule "modules/dashboard"]
+	path = modules/dashboard
+	url = git@github.com:puppetlabs/puppetlabs-dashboard.git
+[submodule "modules/wget"]
+	path = modules/wget
+	url = https://github.com/maestrodev/puppet-wget.git
+[submodule "modules/apt"]
+	path = modules/apt
+	url = https://github.com/puppetlabs/puppetlabs-apt.git
+[submodule "modules/nodejs"]
+	path = modules/nodejs
+	url = https://github.com/puppetlabs/puppetlabs-nodejs.git
+[submodule "modules/ant"]
+	path = modules/ant
+	url = https://github.com/maestrodev/puppet-ant.git
+[submodule "modules/postgresql"]
+	path = modules/postgresql
+	url = https://github.com/puppetlabs/puppetlabs-postgresql.git
