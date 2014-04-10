@@ -139,3 +139,42 @@
 [submodule "modules/postgresql"]
 	path = modules/postgresql
 	url = https://github.com/puppetlabs/puppetlabs-postgresql.git
+[submodule "modules/docsf"]
+	path = modules/docsf
+	url = git@github.com:devopera/puppet-docsf.git
+[submodule "modules/dorkhunter"]
+	path = modules/dorkhunter
+	url = git@github.com:devopera/puppet-dorkhunter.git
+[submodule "configs/lamp"]
+	path = configs/lamp
+	url = git@github.com:devopera/appconfig-lamp.git
+[submodule "modules/dodjango"]
+	path = modules/dodjango
+	url = git@github.com:devopera/puppet-dodjango.git
+[submodule "modules/dodrupal"]
+	path = modules/dodrupal
+	url = git@github.com:devopera/puppet-dodrupal.git
+[submodule "modules/doffmpeg"]
+	path = modules/doffmpeg
+	url = git@github.com:devopera/puppet-doffmpeg.git
+[submodule "modules/dopython"]
+	path = modules/dopython
+	url = git@github.com:devopera/puppet-dopython.git
+[submodule "configs/redmine"]
+	path = configs/redmine
+	url = git@github.com:devopera/appconfig-redmine.git
+[submodule "modules/donodejs"]
+	path = modules/donodejs
+	url = git@github.com:devopera/puppet-donodejs.git
+[submodule "modules/dophonegap"]
+	path = modules/dophonegap
+	url = git@github.com:devopera/puppet-dophonegap.git
+[submodule "modules/doyeoman"]
+	path = modules/doyeoman
+	url = git@github.com:devopera/puppet-doyeoman.git
+[submodule "modules/dopostgresql"]
+	path = modules/dopostgresql
+	url = git@github.com:devopera/puppet-dopostgresql.git
+[submodule "modules/dopassenger"]
+	path = modules/dopassenger
+	url = git@github.com:devopera/puppet-dopassenger.git
