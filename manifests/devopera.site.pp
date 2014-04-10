@@ -321,15 +321,17 @@ define process_profile (
       class { 'doredmine' :
         user => $user,
       }->
-      class { 'doredmine::base' :
+      doredmine::base { 'redmine' :
         user => $user,
         monitor => true,
+        db_populate => true,
         symlinkdir => "/home/${user}",
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
       }->
       # install vhost for redmine base
       dorepos::installapp { 'redmine-demo' :
         user => $user,
+        refresh_apache_type => 'restart',
         repo_source => 'https://github.com/devopera/appconfig-redmine.git',
       }
     }
