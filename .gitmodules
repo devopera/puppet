@@ -79,9 +79,6 @@
 [submodule "modules/mysql"]
 	path = modules/mysql
 	url = https://github.com/devopera/puppet-mysql.git
-[submodule "modules/squid"]
-	path = modules/squid
-	url = https://github.com/devopera/puppet-squid.git
 [submodule "modules/nagios"]
 	path = modules/nagios
 	url = https://github.com/devopera/puppet-nagios.git
@@ -103,3 +100,21 @@
 [submodule "modules/nrpe"]
 	path = modules/nrpe
 	url = https://github.com/example42/puppet-nrpe.git
+[submodule "modules/dowordpress"]
+	path = modules/dowordpress
+	url = git@github.com:devopera/puppet-dowordpress.git
+[submodule "modules/doredmine"]
+	path = modules/doredmine
+	url = git@github.com:devopera/puppet-doredmine.git
+[submodule "modules/doopencv"]
+	path = modules/doopencv
+	url = git@github.com:devopera/puppet-doopencv.git
+[submodule "modules/dopuppetdashboard"]
+	path = modules/dopuppetdashboard
+	url = git@github.com:devopera/puppet-dopuppetdashboard.git
+[submodule "modules/domongodb"]
+	path = modules/domongodb
+	url = git@github.com:devopera/puppet-domongodb.git
+[submodule "modules/dosquid"]
+	path = modules/dosquid
+	url = git@github.com:devopera/puppet-dosquid.git
