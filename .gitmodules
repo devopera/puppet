@@ -178,3 +178,6 @@
 [submodule "modules/dopassenger"]
 	path = modules/dopassenger
 	url = git@github.com:devopera/puppet-dopassenger.git
+[submodule "modules/squid"]
+	path = modules/squid
+	url = git@github.com:devopera/puppet-squid.git
