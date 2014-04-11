@@ -13,4 +13,69 @@ Please start by creating your own fork of this repo:
 
 https://github.com/devopera/puppet
 
+New client setup
+----------------
+
+To setup a new or freshly installed machine as a puppet agent (client) from scratch:
+
+1. Perform a minimal install of the OS (e.g. Centos 6)
+
+2. Install Puppet 3 (agent) using Puppetlabs rpm/deb repositories
+Under Centos
+```
+su
+rpm -ivh http://yum.puppetlabs.com/el/6/products/i386/puppetlabs-release-6-6.noarch.rpm
+rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+yum -y update
+yum -y install puppet
+```
+Under Fedora (17 & 18)
+```
+su
+sudo rpm -ivh http://yum.puppetlabs.com/fedora/f17/products/i386/puppetlabs-release-17-6.noarch.rpm
+yum -y update
+yum -y install puppet
+```
+Under Ubuntu
+```
+wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb
+sudo dpkg -i puppetlabs-release-precise.deb
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install puppet
+```
+
+3. Point the agent at the Puppet master (using puppet alias for machine-name.lan)
+```
+    <add puppet master to /etc/hosts>
+    e.g. <ip address> puppet
+```
+3b. [Optionally] set the environment for this agent in /etc/puppet/puppet.conf.  Production is the default.
+```
+    environment = production
+```
+3c. [Optionally] set the profile for this machine in /etc/puppet/puppet.conf
+```
+    pluginsync = true
+```
+and in /etc/puppet/custom_facts.yml (default is <none>)
+```
+    server_profile: dev
+```
+3d. For local Virtualbox VMs, force the hostname from .lan to .localdomain.  This creates VMware/Virtualbox symmetry and negates the need for two puppet certs, but remember that Virtualbox (bridged networking) can't access other subnets (e.g. puppet master).
+```
+    hostname <hostname>.localdomain
+```
+4. Test the agent and send cert to server
+```
+    puppet agent -dvt
+```
+5. On Server, sign the certificate
+```
+    puppet cert sign "<client-fqdn>"
+```
+6. Run the agent properly for the first time
+```
+    puppet agent -dvt
+```
 
