@@ -28,9 +28,6 @@
 [submodule "configs/wordpress"]
 	path = configs/wordpress
 	url = https://github.com/devopera/appconfig-wordpress.git
-[submodule "modules/concat"]
-	path = modules/concat
-	url = https://github.com/ripienaar/puppet-concat.git
 [submodule "modules/nfs"]
 	path = modules/nfs
 	url = https://github.com/haraldsk/puppet-module-nfs/
@@ -88,9 +85,6 @@
 [submodule "modules/donagios"]
 	path = modules/donagios
 	url = https://github.com/devopera/puppet-donagios.git
-[submodule "modules/samba"]
-	path = modules/samba
-	url = https://github.com/thias/puppet-samba.git
 [submodule "modules/dodns"]
 	path = modules/dodns
 	url = https://github.com/devopera/puppet-dodns.git
