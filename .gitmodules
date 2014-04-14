@@ -175,3 +175,9 @@
 [submodule "modules/squid"]
 	path = modules/squid
 	url = git@github.com:devopera/puppet-squid.git
+[submodule "modules/samba"]
+	path = modules/samba
+	url = git@github.com:devopera/puppet-samba.git
+[submodule "modules/concat"]
+	path = modules/concat
+	url = https://github.com/puppetlabs/puppetlabs-concat.git
