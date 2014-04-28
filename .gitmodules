@@ -178,3 +178,6 @@
 [submodule "modules/concat"]
 	path = modules/concat
 	url = https://github.com/puppetlabs/puppetlabs-concat.git
+[submodule "modules/samba"]
+	path = modules/samba
+	url = https://github.com/thias/puppet-samba.git
