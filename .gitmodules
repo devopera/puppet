@@ -75,7 +75,7 @@
 	url = https://github.com/devopera/puppet-dns.git
 [submodule "modules/mysql"]
 	path = modules/mysql
-	url = https://github.com/devopera/puppet-mysql.git
+	url = https://github.com/puppetlabs/puppetlabs-mysql.git
 [submodule "modules/nagios"]
 	path = modules/nagios
 	url = https://github.com/devopera/puppet-nagios.git
