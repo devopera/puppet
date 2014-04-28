@@ -181,3 +181,15 @@
 [submodule "modules/samba"]
 	path = modules/samba
 	url = https://github.com/thias/puppet-samba.git
+[submodule "modules/dosymfony"]
+	path = modules/dosymfony
+	url = git@github.com:devopera/puppet-dosymfony.git
+[submodule "modules/mongodb"]
+	path = modules/mongodb
+	url = https://github.com/puppetlabs/puppetlabs-mongodb.git
+[submodule "modules/doversions"]
+	path = modules/doversions
+	url = git@github.com:devopera/puppet-doversions.git
+[submodule "modules/domean"]
+	path = modules/domean
+	url = git@github.com:devopera/puppet-domean.git

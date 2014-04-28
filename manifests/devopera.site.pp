@@ -183,18 +183,15 @@ define process_profile (
       }
     }
     mean: {
-      if ! defined(Class['donodejs']) {
-        class { 'donodejs' :
-          user => $user,
-          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
-        }
+      class { 'domean' :
+        user => $user,
+        require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+      }->
+      domean::base { 'mean-demo' :
+        user => $user,
+        symlinkdir => "/home/${user}",
       }
-      if ! defined(Class['domongodb']) {
-        class { 'domongodb' :
-          user => $user,
-        }
-      }
-      # also install yeoman for angular boilerplate
+      # also install yeoman for boilerplates
       if ! defined(Class['doyeoman']) {
         class { 'doyeoman' :
           user => $user,
@@ -218,7 +215,7 @@ define process_profile (
           require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
         }
       }
-      donodejs::base { 'donodejs-nodejs-profile-base' :
+      donodejs::base { 'hellonode' :
         user => $user,
         require => [Class['donodejs']],
       }
