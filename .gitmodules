@@ -96,28 +96,28 @@
 	url = https://github.com/example42/puppet-nrpe.git
 [submodule "modules/dowordpress"]
 	path = modules/dowordpress
-	url = git@github.com:devopera/puppet-dowordpress.git
+	url = https://github.com/devopera/puppet-dowordpress.git
 [submodule "modules/doredmine"]
 	path = modules/doredmine
-	url = git@github.com:devopera/puppet-doredmine.git
+	url = https://github.com/devopera/puppet-doredmine.git
 [submodule "modules/doopencv"]
 	path = modules/doopencv
-	url = git@github.com:devopera/puppet-doopencv.git
+	url = https://github.com/devopera/puppet-doopencv.git
 [submodule "modules/dopuppetdashboard"]
 	path = modules/dopuppetdashboard
-	url = git@github.com:devopera/puppet-dopuppetdashboard.git
+	url = https://github.com/devopera/puppet-dopuppetdashboard.git
 [submodule "modules/domongodb"]
 	path = modules/domongodb
-	url = git@github.com:devopera/puppet-domongodb.git
+	url = https://github.com/devopera/puppet-domongodb.git
 [submodule "modules/dosquid"]
 	path = modules/dosquid
-	url = git@github.com:devopera/puppet-dosquid.git
+	url = https://github.com/devopera/puppet-dosquid.git
 [submodule "modules/rkhunter"]
 	path = modules/rkhunter
-	url = git@github.com:duritong/puppet-rkhunter.git
+	url = https://github.com/duritong/puppet-rkhunter.git
 [submodule "modules/dashboard"]
 	path = modules/dashboard
-	url = git@github.com:puppetlabs/puppetlabs-dashboard.git
+	url = https://github.com/puppetlabs/puppetlabs-dashboard.git
 [submodule "modules/wget"]
 	path = modules/wget
 	url = https://github.com/maestrodev/puppet-wget.git
@@ -135,46 +135,46 @@
 	url = https://github.com/puppetlabs/puppetlabs-postgresql.git
 [submodule "modules/docsf"]
 	path = modules/docsf
-	url = git@github.com:devopera/puppet-docsf.git
+	url = https://github.com/devopera/puppet-docsf.git
 [submodule "modules/dorkhunter"]
 	path = modules/dorkhunter
-	url = git@github.com:devopera/puppet-dorkhunter.git
+	url = https://github.com/devopera/puppet-dorkhunter.git
 [submodule "configs/lamp"]
 	path = configs/lamp
-	url = git@github.com:devopera/appconfig-lamp.git
+	url = https://github.com/devopera/appconfig-lamp.git
 [submodule "modules/dodjango"]
 	path = modules/dodjango
-	url = git@github.com:devopera/puppet-dodjango.git
+	url = https://github.com/devopera/puppet-dodjango.git
 [submodule "modules/dodrupal"]
 	path = modules/dodrupal
-	url = git@github.com:devopera/puppet-dodrupal.git
+	url = https://github.com/devopera/puppet-dodrupal.git
 [submodule "modules/doffmpeg"]
 	path = modules/doffmpeg
-	url = git@github.com:devopera/puppet-doffmpeg.git
+	url = https://github.com/devopera/puppet-doffmpeg.git
 [submodule "modules/dopython"]
 	path = modules/dopython
-	url = git@github.com:devopera/puppet-dopython.git
+	url = https://github.com/devopera/puppet-dopython.git
 [submodule "configs/redmine"]
 	path = configs/redmine
-	url = git@github.com:devopera/appconfig-redmine.git
+	url = https://github.com/devopera/appconfig-redmine.git
 [submodule "modules/donodejs"]
 	path = modules/donodejs
-	url = git@github.com:devopera/puppet-donodejs.git
+	url = https://github.com/devopera/puppet-donodejs.git
 [submodule "modules/dophonegap"]
 	path = modules/dophonegap
-	url = git@github.com:devopera/puppet-dophonegap.git
+	url = https://github.com/devopera/puppet-dophonegap.git
 [submodule "modules/doyeoman"]
 	path = modules/doyeoman
-	url = git@github.com:devopera/puppet-doyeoman.git
+	url = https://github.com/devopera/puppet-doyeoman.git
 [submodule "modules/dopostgresql"]
 	path = modules/dopostgresql
-	url = git@github.com:devopera/puppet-dopostgresql.git
+	url = https://github.com/devopera/puppet-dopostgresql.git
 [submodule "modules/dopassenger"]
 	path = modules/dopassenger
-	url = git@github.com:devopera/puppet-dopassenger.git
+	url = https://github.com/devopera/puppet-dopassenger.git
 [submodule "modules/squid"]
 	path = modules/squid
-	url = git@github.com:devopera/puppet-squid.git
+	url = https://github.com/devopera/puppet-squid.git
 [submodule "modules/concat"]
 	path = modules/concat
 	url = https://github.com/puppetlabs/puppetlabs-concat.git
@@ -183,13 +183,13 @@
 	url = https://github.com/thias/puppet-samba.git
 [submodule "modules/dosymfony"]
 	path = modules/dosymfony
-	url = git@github.com:devopera/puppet-dosymfony.git
+	url = https://github.com/devopera/puppet-dosymfony.git
 [submodule "modules/mongodb"]
 	path = modules/mongodb
 	url = https://github.com/puppetlabs/puppetlabs-mongodb.git
 [submodule "modules/doversions"]
 	path = modules/doversions
-	url = git@github.com:devopera/puppet-doversions.git
+	url = https://github.com/devopera/puppet-doversions.git
 [submodule "modules/domean"]
 	path = modules/domean
-	url = git@github.com:devopera/puppet-domean.git
+	url = https://github.com/devopera/puppet-domean.git
