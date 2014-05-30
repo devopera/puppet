@@ -187,9 +187,6 @@
 [submodule "modules/mongodb"]
 	path = modules/mongodb
 	url = https://github.com/puppetlabs/puppetlabs-mongodb.git
-[submodule "modules/doversions"]
-	path = modules/doversions
-	url = https://github.com/devopera/puppet-doversions.git
 [submodule "modules/domean"]
 	path = modules/domean
 	url = https://github.com/devopera/puppet-domean.git
