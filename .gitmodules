@@ -193,3 +193,6 @@
 [submodule "modules/domean"]
 	path = modules/domean
 	url = https://github.com/devopera/puppet-domean.git
+[submodule "modules/dojekyll"]
+	path = modules/dojekyll
+	url = https://github.com/devopera/puppet-dojekyll.git

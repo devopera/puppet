@@ -109,11 +109,6 @@ define process_profile (
         user => $user,
         user_email => $user_email,
       }
-      package { 'jekyll':
-        ensure   => 'installed',
-        provider => 'gem',
-        require  => [Class['docommon::dev']],
-      }
     }
     desktop: {
       # install X Windows
@@ -170,6 +165,18 @@ define process_profile (
         app_name => 'drupal-7',
         monitor => true,
         require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
+      }
+    }
+    jekyll: {
+      if ! defined(Class['donodejs']) {
+        class { 'donodejs' :
+          user => $user,
+          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+        }
+      }
+      class { 'dojekyll' :
+        user => $user,
+        require => [Class['donodejs']],
       }
     }
     lamp: {
