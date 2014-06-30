@@ -34,8 +34,8 @@ node default {
   }
 
   class { 'dozendserver' :
-    server_version => '6.1',
-    php_version => '5.3',
+    server_version => '6.3',
+    php_version => '5.4',
     require => Class['docommon'],
   }
 
@@ -70,7 +70,7 @@ node default {
   #
   if ($server_profile =~ /django-1-beta/) {
     class { 'dozendserver::override':
-      server_version => '6.1',
+      server_version => '6.3',
       php_version => '5.4',
     }
   }
@@ -90,6 +90,8 @@ define process_profile (
   # match this profile component against known profiles
   case $profile {
     dev: {
+      # include gcc first to avoid later package conflict
+      class { 'gcc': }->
       class { 'docommon::dev' : }
       # set apache/PHP to show errors
       class { 'dozendserver::debug' : }
@@ -108,6 +110,30 @@ define process_profile (
       class { 'dopki::vagrant' :
         user => $user,
         user_email => $user_email,
+      }
+    }
+    derbyjs: {
+      class { 'domean' :
+        user => $user,
+        require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+      }->
+      class { 'redis' :
+        # @todo version number needs to be advanced by hand
+        version => '2.6.14',
+      }->
+      class { 'doderby' :
+        user => $user,
+      }->
+      doderby::base { 'derby-demo' :
+        user => $user,
+        symlinkdir => "/home/${user}",
+      }
+      # also install yeoman for boilerplates
+      if ! defined(Class['doyeoman']) {
+        class { 'doyeoman' :
+          user => $user,
+          require => [Class['donodejs']],
+        }
       }
     }
     desktop: {
@@ -224,6 +250,7 @@ define process_profile (
       }
       donodejs::base { 'hellonode' :
         user => $user,
+        symlinkdir => "/home/${user}",
         require => [Class['donodejs']],
       }
     }
