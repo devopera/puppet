@@ -79,3 +79,4 @@ and in /etc/puppet/custom_facts.yml (default is <none>)
     puppet agent -dvt
 ```
 
+At this stage it's also worth adding acl to /etc/fstab and setting up SELinux.
