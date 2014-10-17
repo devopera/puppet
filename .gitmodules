@@ -208,9 +208,6 @@
 [submodule "modules/inifile"]
 	path = modules/inifile
 	url = https://github.com/cprice-puppet/puppetlabs-inifile.git
-[submodule "modules/doversions"]
-	path = modules/doversions
-	url = https://github.com/devopera/puppet-doversions.git
 [submodule "modules/doderby"]
 	path = modules/doderby
 	url = https://github.com/devopera/puppet-doderby.git
