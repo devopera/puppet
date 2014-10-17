@@ -113,6 +113,12 @@ define process_profile (
       }
     }
     derbyjs: {
+      if ! defined(Class['doyeoman']) {
+        class { 'doyeoman' :
+          user => $user,
+          require => [Class['donodejs']],
+        }
+      }
       class { 'domean' :
         user => $user,
         require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
@@ -120,9 +126,10 @@ define process_profile (
       class { 'redis' :
         # @todo version number needs to be advanced by hand
         version => '2.6.14',
-      }->
+      }
       class { 'doderby' :
         user => $user,
+        require => [Class['donodejs'], Class['redis'], Class['doyeoman']],
       }->
       doderby::base { 'derby-demo' :
         user => $user,

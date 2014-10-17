@@ -31,9 +31,6 @@
 [submodule "modules/nfs"]
 	path = modules/nfs
 	url = https://github.com/haraldsk/puppet-module-nfs/
-[submodule "modules/inifilei"]
-	path = modules/inifilei
-	url = https://github.com/cprice-puppet/puppetlabs-inifile.git
 [submodule "modules/stdlib"]
 	path = modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
@@ -193,3 +190,18 @@
 [submodule "modules/dojekyll"]
 	path = modules/dojekyll
 	url = https://github.com/devopera/puppet-dojekyll.git
+[submodule "modules/gcc"]
+	path = modules/gcc
+	url = https://github.com/puppetlabs/puppetlabs-gcc.git
+[submodule "modules/redis"]
+	path = modules/redis
+	url = https://github.com/thomasvandoren/puppet-redis.git
+[submodule "modules/selinux_types"]
+	path = modules/selinux_types
+	url = https://github.com/jgoldschrafe/puppet-selinux_types.git
+[submodule "modules/elasticsearch"]
+	path = modules/elasticsearch
+	url = https://github.com/elasticsearch/puppet-elasticsearch.git
+[submodule "configs/angular"]
+	path = configs/angular
+	url = https://github.com/devopera/appconfig-angular.git

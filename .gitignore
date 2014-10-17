@@ -1,0 +1,15 @@
+# ignore non-versioned puppetmaster stuff
+auth.conf
+custom_facts.yml
+fileserver.conf
+puppet.conf
+puppet.conf.orig
+puppetdb.conf
+routes.yaml
+
+# ignore client notifiers
+tmp/
+
+# ignore the environments folder (except devopera which is forced)
+environments/
+

@@ -1,1 +1,0 @@
-../environments/devopera/manifests/site.pp

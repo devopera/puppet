@@ -78,5 +78,9 @@ and in /etc/puppet/custom_facts.yml (default is <none>)
 ```
     puppet agent -dvt
 ```
+7. Log out and log back in again to trigger ssh-add, or
+```
+    source .bashrc
+```
 
 At this stage it's also worth adding acl to /etc/fstab and setting up SELinux.
