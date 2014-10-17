@@ -205,3 +205,6 @@
 [submodule "configs/angular"]
 	path = configs/angular
 	url = https://github.com/devopera/appconfig-angular.git
+[submodule "modules/inifile"]
+	path = modules/inifile
+	url = https://github.com/cprice-puppet/puppetlabs-inifile.git
