@@ -21,11 +21,18 @@ To setup a new or freshly installed machine as a puppet agent (client) from scra
 1. Perform a minimal install of the OS (e.g. Centos 6)
 
 2. Install Puppet 3 (agent) using Puppetlabs rpm/deb repositories
-Under Centos
+Under Centos 6
 ```
 su
-rpm -ivh http://yum.puppetlabs.com/el/6/products/i386/puppetlabs-release-6-6.noarch.rpm
+rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
 rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+yum -y update
+yum -y install puppet
+```
+Under Centos 7
+```
+su
+rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
 yum -y update
 yum -y install puppet
 ```
