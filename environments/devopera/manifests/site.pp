@@ -309,18 +309,8 @@ define process_profile (
       # replace local /etc/puppet directory with repo, but merge in agent/master settings
       class { 'dopuppetmaster' :
         user => $user,
-        # setup puppetmaster with devopera-puppet open read-only repo
+        # setup puppetmaster with devopera-puppet open repo
         puppet_repo_source => 'https://github.com/devopera/puppet.git',
-        environments => {
-          'production' => {
-             comment => 'production is the default environment',
-             manifest => '$confdir/manifests/devopera.site.pp',
-          },
-          'devopera' => {
-             comment => 'for all devopera VMs and builds',
-             manifest => '$confdir/manifests/devopera.site.pp',
-          },
-        },
         # set this machine up as its own puppetmaster, i.e. not use original
         master_use_original => false,
         require => Class['dorepos'],
