@@ -219,7 +219,7 @@ define process_profile (
         repo_source => 'https://github.com/devopera/appconfig-lamp.git',
         symlinkdir => "/home/${user}/",
         install_databases => true,
-        require => [Class['dorepos'], Class['domysqldb']],
+        require => [Class['dorepos'], Class['domysqldb'], Class['dozendserver']],
       }
     }
     mean: {
