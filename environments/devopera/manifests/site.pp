@@ -33,7 +33,7 @@ node default {
     require => [Class['dopki'],Class['dopki::sshagentadd']],
   }
 
-  class { 'dozendserver' :
+  class { 'doapache' :
     server_version => '6.3',
     php_version => '5.4',
     require => Class['docommon'],
@@ -69,7 +69,7 @@ node default {
   # profile-specific defaults, which must be set in the default node
   #
   if ($server_profile =~ /django-1-beta/) {
-    class { 'dozendserver::override':
+    class { 'doapache::override':
       server_version => '6.3',
       php_version => '5.4',
     }
@@ -94,7 +94,7 @@ define process_profile (
       class { 'gcc': }->
       class { 'docommon::dev' : }
       # set apache/PHP to show errors
-      class { 'dozendserver::debug' : }
+      class { 'doapache::debug' : }
       # install samba with default password
       class { 'dosamba' :
         require => [Class['dorepos']],
@@ -121,7 +121,7 @@ define process_profile (
       }
       class { 'domean' :
         user => $user,
-        require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+        require => [Class['docommon'], Class['doapache'], Class['dorepos']],
       }->
       class { 'redis' :
         # @todo version number needs to be advanced by hand
@@ -155,7 +155,7 @@ define process_profile (
       class { 'dodjango::base' :
         user => $user,
         monitor => true,
-        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
+        require => [Class['dorepos'], Class['doapache'], Class['domysqldb']],
       }
     }
     django-1-beta: {
@@ -167,7 +167,7 @@ define process_profile (
       }->
       class { 'dodjango::base' :
         user => $user,
-        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
+        require => [Class['dorepos'], Class['doapache'], Class['domysqldb']],
       }
     }
     drupal-7: {
@@ -178,7 +178,7 @@ define process_profile (
         user => $user,
         app_name => 'drupal-7',
         monitor => true,
-        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
+        require => [Class['dorepos'], Class['doapache'], Class['domysqldb'], Class['dodrupal']],
       }
     }
     drupal-8: {
@@ -190,21 +190,21 @@ define process_profile (
         user => $user,
         vhost_seq => '01',
         app_name => 'drupal-8.x',
-        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
+        require => [Class['dorepos'], Class['doapache'], Class['domysqldb'], Class['dodrupal']],
       }
       dodrupal::base { 'dodrupal-base-7' :
         user => $user,
         vhost_seq => '02',
         app_name => 'drupal-7',
         monitor => true,
-        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb'], Class['dodrupal']],
+        require => [Class['dorepos'], Class['doapache'], Class['domysqldb'], Class['dodrupal']],
       }
     }
     jekyll: {
       if ! defined(Class['donodejs']) {
         class { 'donodejs' :
           user => $user,
-          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+          require => [Class['docommon'], Class['doapache'], Class['dorepos']],
         }
       }
       class { 'dojekyll' :
@@ -219,13 +219,13 @@ define process_profile (
         repo_source => 'https://github.com/devopera/appconfig-lamp.git',
         symlinkdir => "/home/${user}/",
         install_databases => true,
-        require => [Class['dorepos'], Class['domysqldb'], Class['dozendserver']],
+        require => [Class['dorepos'], Class['domysqldb'], Class['doapache']],
       }
     }
     mean: {
       class { 'domean' :
         user => $user,
-        require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+        require => [Class['docommon'], Class['doapache'], Class['dorepos']],
       }->
       domean::base { 'mean-demo' :
         user => $user,
@@ -245,14 +245,14 @@ define process_profile (
       }->
       class { 'domantis::base' :
         user => $user,
-        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
+        require => [Class['dorepos'], Class['doapache'], Class['domysqldb']],
       }
     }
     nodejs: {
       if ! defined(Class['donodejs']) {
         class { 'donodejs' :
           user => $user,
-          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+          require => [Class['docommon'], Class['doapache'], Class['dorepos']],
         }
       }
       donodejs::base { 'hellonode' :
@@ -280,7 +280,7 @@ define process_profile (
       class { 'donagios::server' :
         user => $user,
         webadmin_limitlocalhost => false,
-        require => [Class['dozendserver']],
+        require => [Class['doapache']],
       }
       # setup hostgroup
       nagios_hostgroup { 'devopera': }
@@ -290,7 +290,7 @@ define process_profile (
       if ! defined(Class['donodejs']) {
         class { 'donodejs' :
           user => $user,
-          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+          require => [Class['docommon'], Class['doapache'], Class['dorepos']],
         }
       }
       class { 'dophonegap' :
@@ -325,7 +325,7 @@ define process_profile (
         require => Class['docommon'],
       }->
       class { 'dopython::wsgi' :
-        require => Class['dozendserver'],
+        require => Class['doapache'],
       }
     }
     python-33: {
@@ -337,13 +337,13 @@ define process_profile (
       }->
       class { 'dopython::wsgi' :
         version_python_major => '3.3',
-        require => Class['dozendserver'],
+        require => Class['doapache'],
       }
     }
     redmine-2: {
       # install passenger
       class { 'dopassenger' :
-        require => [Class['docommon'], Class['dozendserver']],
+        require => [Class['docommon'], Class['doapache']],
       }->
       # install Redmine deps
       class { 'doredmine' :
@@ -354,7 +354,7 @@ define process_profile (
         monitor => true,
         db_populate => true,
         symlinkdir => "/home/${user}",
-        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
+        require => [Class['dorepos'], Class['doapache'], Class['domysqldb']],
       }->
       # install vhost for redmine base
       dorepos::installapp { 'redmine-demo' :
@@ -373,7 +373,7 @@ define process_profile (
     symfony-2: {
       # install symfony demo and composer
       class { 'dosymfony':
-        require => [Class['dozendserver']],
+        require => [Class['doapache']],
       }->
       dosymfony::base { 'dosymfony-demo':
         user => $user,
@@ -394,14 +394,14 @@ define process_profile (
       }->
       class { 'dowordpress::base' :
         user => $user,
-        require => [Class['dorepos'], Class['dozendserver'], Class['domysqldb']],
+        require => [Class['dorepos'], Class['doapache'], Class['domysqldb']],
       }
     }
     yeoman : {
       if ! defined(Class['donodejs']) {
         class { 'donodejs' :
           user => $user,
-          require => [Class['docommon'], Class['dozendserver'], Class['dorepos']],
+          require => [Class['docommon'], Class['doapache'], Class['dorepos']],
         }
       }
       if ! defined(Class['doyeoman']) {
