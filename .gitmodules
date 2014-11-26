@@ -214,3 +214,6 @@
 [submodule "modules/doapache"]
 	path = modules/doapache
 	url = https://github.com/devopera/puppet-doapache.git
+[submodule "modules/dogae"]
+	path = modules/dogae
+	url = https://github.com/devopera/puppet-dogae.git
