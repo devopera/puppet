@@ -211,9 +211,6 @@
 [submodule "modules/doderby"]
 	path = modules/doderby
 	url = https://github.com/devopera/puppet-doderby.git
-[submodule "modules/dogae"]
-	path = modules/dogae
-	url = https://github.com/devopera/dogae.git
 [submodule "modules/doapache"]
 	path = modules/doapache
 	url = https://github.com/devopera/puppet-doapache.git
