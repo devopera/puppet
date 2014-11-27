@@ -25,7 +25,7 @@ Under Centos 6
 ```
 su
 rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
-rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 yum -y update
 yum -y install puppet
 ```
@@ -33,6 +33,7 @@ Under Centos 7
 ```
 su
 rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm
 yum -y update
 yum -y install puppet
 ```
