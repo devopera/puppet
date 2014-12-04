@@ -217,6 +217,3 @@
 [submodule "modules/dogae"]
 	path = modules/dogae
 	url = https://github.com/devopera/puppet-dogae.git
-[submodule "modules/doloris"]
-	path = modules/doloris
-	url = https://github.com/devopera/doloris.git
