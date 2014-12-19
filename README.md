@@ -44,12 +44,21 @@ sudo rpm -ivh http://yum.puppetlabs.com/fedora/f17/products/i386/puppetlabs-rele
 yum -y update
 yum -y install puppet
 ```
-Under Ubuntu
+Under Ubuntu 12.04 LTS
 ```
 wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb
 sudo dpkg -i puppetlabs-release-precise.deb
 sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get install puppet
+```
+
+Under Ubuntu 14.04 LTS
+```
+wget http://apt.puppetlabs.com/puppetlabs-release-trusty.deb
+sudo dpkg -i puppetlabs-release-trusty.deb
+sudo apt-get update
+sudo apt-get dist-upgrade
 sudo apt-get install puppet
 ```
 
