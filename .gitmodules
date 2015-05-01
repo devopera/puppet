@@ -220,3 +220,6 @@
 [submodule "modules/doloris"]
 	path = modules/doloris
 	url = https://github.com/devopera/puppet-doloris.git
+[submodule "modules/heroku"]
+	path = modules/heroku
+	url = git@github.com:garethr/garethr-heroku.git
