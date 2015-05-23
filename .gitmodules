@@ -223,3 +223,6 @@
 [submodule "modules/heroku"]
 	path = modules/heroku
 	url = git@github.com:garethr/garethr-heroku.git
+[submodule "modules/rvm"]
+	path = modules/rvm
+	url = https://github.com/maestrodev/puppet-rvm.git
