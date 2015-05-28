@@ -226,3 +226,6 @@
 [submodule "modules/rvm"]
 	path = modules/rvm
 	url = https://github.com/maestrodev/puppet-rvm.git
+[submodule "modules/gnupg"]
+	path = modules/gnupg
+	url = https://github.com/n1tr0g/golja-gnupg
