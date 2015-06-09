@@ -266,8 +266,8 @@ define process_profile (
       if ($server_profile =~ /dev/) {
         # if both nagios and dev profiles present
         class { 'donagios::nrpe-client' :
-          # cover clients with and without subnet (/24) wildcard support
-          allowed_hosts => [ '127.0.0.1', '10.12.2.0/24', '10.12.2.160', ],
+          # cover clients with and without subnet (/24) wildcard support (nrpe <= 2.1.2)
+          allowed_hosts => [ '127.0.0.1', '10.12.2.0/24', '10.12.2.4', ],
         }
       }
     }
@@ -275,7 +275,7 @@ define process_profile (
       class { 'donagios::server::pre' :
       }->
       class { 'donagios::nrpe-client' :
-        allowed_hosts => [ '127.0.0.1', '10.12.2.0/24', '10.12.2.160', ],
+        allowed_hosts => [ '127.0.0.1', '10.12.2.0/24', '10.12.2.4', ],
       }->
       class { 'donagios::server' :
         user => $user,
@@ -394,6 +394,7 @@ define process_profile (
       }->
       class { 'dowordpress::base' :
         user => $user,
+        monitor => true,
         require => [Class['dorepos'], Class['doapache'], Class['domysqldb']],
       }
     }
