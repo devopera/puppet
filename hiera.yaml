@@ -1,0 +1,9 @@
+---
+:backends:
+  - json
+:json:
+  :datadir: /etc/puppet/environments/%{::environment}/hieradata
+:hierarchy:
+  - "%{::clientcert}"
+  - "%{::environment}"
+  - common
