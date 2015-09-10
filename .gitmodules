@@ -232,3 +232,9 @@
 [submodule "modules/selinux"]
 	path = modules/selinux
 	url = https://github.com/jfryman/puppet-selinux.git
+[submodule "modules/docordova"]
+	path = modules/docordova
+	url = https://github.com/devopera/puppet-docordova.git
+[submodule "modules/doandroid"]
+	path = modules/doandroid
+	url = https://github.com/devopera/puppet-doandroid.git
