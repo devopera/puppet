@@ -112,6 +112,19 @@ define process_profile (
         user_email => $user_email,
       }
     }
+    cordova: {
+      if ! defined(Class['donodejs']) {
+        class { 'donodejs' :
+          user => $user,
+          require => [Class['docommon'], Class['doapache'], Class['dorepos']],
+        }
+      }
+      class { 'docordova' :
+        user => $user,
+        group => $group,
+        require => [Class['donodejs']],        
+      }
+    }
     derbyjs: {
       if ! defined(Class['doyeoman']) {
         class { 'doyeoman' :
