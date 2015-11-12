@@ -1,0 +1,1 @@
+Manifests is no longer used, in favour of directory-based profiles in /environments.
