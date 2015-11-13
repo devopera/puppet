@@ -238,6 +238,3 @@
 [submodule "modules/doandroid"]
 	path = modules/doandroid
 	url = https://github.com/devopera/puppet-doandroid.git
-[submodule "modules/drush"]
-	path = modules/drush
-	url = https://github.com/puphpet/puppet-drush.git
