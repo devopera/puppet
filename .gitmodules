@@ -238,3 +238,6 @@
 [submodule "modules/doandroid"]
 	path = modules/doandroid
 	url = https://github.com/devopera/puppet-doandroid.git
+[submodule "modules/composer"]
+	path = modules/composer
+	url = https://github.com/willdurand/puppet-composer.git
