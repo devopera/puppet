@@ -1,6 +1,3 @@
-[submodule "modules/dozendserver"]
-	path = modules/dozendserver
-	url = https://github.com/devopera/puppet-dozendserver.git
 [submodule "modules/dorepos"]
 	path = modules/dorepos
 	url = https://github.com/devopera/puppet-dorepos.git
