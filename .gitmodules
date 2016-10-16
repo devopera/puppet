@@ -238,3 +238,6 @@
 [submodule "modules/composer"]
 	path = modules/composer
 	url = https://github.com/willdurand/puppet-composer.git
+[submodule "modules/datacat"]
+	path = modules/datacat
+	url = https://github.com/richardc/puppet-datacat
