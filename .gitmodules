@@ -241,3 +241,6 @@
 [submodule "modules/datacat"]
 	path = modules/datacat
 	url = https://github.com/richardc/puppet-datacat
+[submodule "modules/rabbitmq"]
+	path = modules/rabbitmq
+	url = https://github.com/puppetlabs/puppetlabs-rabbitmq
