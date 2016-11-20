@@ -62,6 +62,15 @@ sudo apt-get dist-upgrade
 sudo apt-get install puppet
 ```
 
+Under Ubuntu 16.04 LTS
+```
+wget http://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
+sudo dpkg -i puppetlabs-release-pc1-xenial.deb
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get install puppet
+```
+
 3. Point the agent at the Puppet master (using puppet alias for machine-name.lan)
 ```
     <add puppet master to /etc/hosts>
