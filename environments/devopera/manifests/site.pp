@@ -156,10 +156,6 @@ define process_profile (
         }
       }
     }
-    desktop: {
-      # install X Windows
-      class { 'docommon::desktop' : }
-    }
     django-1-official: {
       # required profiles: python-27/python-33
       class { 'dodjango' :
