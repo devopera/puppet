@@ -250,3 +250,12 @@
 [submodule "modules/selinux"]
 	path = modules/selinux
 	url = https://github.com/voxpupuli/puppet-selinux
+[submodule "modules/chocolatey"]
+	path = modules/chocolatey
+	url = https://github.com/puppetlabs/puppetlabs-chocolatey
+[submodule "modules/powershell"]
+	path = modules/powershell
+	url = https://github.com/puppetlabs/puppetlabs-powershell
+[submodule "modules/registry"]
+	path = modules/registry
+	url = https://github.com/puppetlabs/puppetlabs-registry
