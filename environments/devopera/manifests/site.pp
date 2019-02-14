@@ -34,7 +34,7 @@ node default {
   }
 
   class { 'doapache' :
-    server_version => '6.3',
+    zend_server_version => '6.3',
     php_version => '5.4',
     require => Class['docommon'],
   }
@@ -70,7 +70,7 @@ node default {
   #
   if ($server_profile =~ /django-1-beta/) {
     class { 'doapache::override':
-      server_version => '6.3',
+      zend_server_version => '6.3',
       php_version => '5.4',
     }
   }
