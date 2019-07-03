@@ -265,3 +265,6 @@
 [submodule "modules/doazure"]
 	path = modules/doazure
 	url = git@github.com:devopera/puppet-doazure.git
+[submodule "modules/doaws"]
+	path = modules/doaws
+	url = https://github.com/devopera/puppet-doaws.git
